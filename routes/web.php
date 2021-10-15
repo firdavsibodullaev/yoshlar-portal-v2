@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $url = '/api/telegram-bot-connect';
+    $url = "https://c081-93-157-58-40.ap.ngrok.io{$url}";
+    $telegram = new \App\Modules\Telegram\Telegram();
+    dd($telegram->setWebhook($url));
     return view('welcome');
 });

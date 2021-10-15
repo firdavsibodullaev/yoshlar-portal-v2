@@ -40,6 +40,11 @@ class TelegramService
      */
     protected $action;
 
+    /**
+     * TelegramService constructor.
+     * @param Telegram $telegram
+     * @param WebhookUpdates $updates
+     */
     public function __construct(Telegram $telegram, WebhookUpdates $updates)
     {
         $this->telegram = $telegram;

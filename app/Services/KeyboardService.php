@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Constants\ButtonsConstant;
 use App\Constants\LanguagesConstant;
 
 /**
@@ -18,35 +19,35 @@ class KeyboardService
         return [
             [
                 [
-                    'text' => __('Hodisalar')
+                    'text' => __(ButtonsConstant::EVENTS)
                 ],
                 [
-                    'text' => __('Murojaatlar')
+                    'text' => __(ButtonsConstant::APPEALS)
                 ],
 
             ],
             [
                 [
-                    'text' => __('G\'oyalar')
+                    'text' => __(ButtonsConstant::IDEAS)
                 ],
                 [
-                    'text' => __('NPA')
+                    'text' => __(ButtonsConstant::NPA)
                 ],
                 [
-                    'text' => __("Yoshlar daftari")
-                ],
-            ],
-            [
-                [
-                    'text' => __('Sozlamalar'),
-                ],
-                [
-                    'text' => __('Mening kabinetim'),
+                    'text' => __(ButtonsConstant::YOUTH_BOOK)
                 ],
             ],
             [
                 [
-                    'text' => __("Yuridik klinika")
+                    'text' => __(ButtonsConstant::SETTINGS),
+                ],
+                [
+                    'text' => __(ButtonsConstant::MY_CABINET),
+                ],
+            ],
+            [
+                [
+                    'text' => __(ButtonsConstant::LEGAL_CLINIC)
                 ]
             ]
         ];
@@ -69,15 +70,43 @@ class KeyboardService
         ];
     }
 
-    public static function sendContact()
+    /**
+     * @return \array[][]
+     */
+    public static function sendContact(): array
     {
         return [
             [
                 [
-                    'text' => __("Raqamni ulashish"),
+                    'text' => __(ButtonsConstant::SEND_CONTACT),
                     'request_contact' => true,
                 ]
             ]
+        ];
+    }
+
+    /**
+     * @return \array[][]
+     */
+    public static function settingsButton(): array
+    {
+        return [
+            [
+                [
+                    'text' => __(ButtonsConstant::CHANGE_LANGUAGE[0]),
+                    'callback_data' => ButtonsConstant::CHANGE_LANGUAGE[1]
+                ],
+                [
+                    'text' => __(ButtonsConstant::DELETE_ACCOUNT[0]),
+                    'callback_data' => ButtonsConstant::DELETE_ACCOUNT[1]
+                ]
+            ],
+            [
+                [
+                    'text' => __(ButtonsConstant::SETTINGS_EXIT[0]),
+                    'callback_data' => ButtonsConstant::SETTINGS_EXIT[1]
+                ]
+            ],
         ];
     }
 }
